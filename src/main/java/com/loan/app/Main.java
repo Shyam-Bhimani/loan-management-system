@@ -80,5 +80,8 @@ public class Main {
 
         Customer customer1=(Customer) person;
         customer1.displayDetails();
+
+        Person admin =new Admin(101, "Admin", "+91 3459453453", "Amit", "amit@gmail.com");
+        admin.displayDetails();
     }
 }
