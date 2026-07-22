@@ -35,17 +35,50 @@ public class Main {
 //        displayCustomer(customer4);
 //        displayLoan(loan4);
 
-        Person person = new Person("+91 9090909090","John Wick","wick.john@gmail.com");
+//        Person person = new Person("+91 9090909090","John Wick","wick.john@gmail.com");
+//
+//        Customer customer = new Customer(1,"+91 9080808080","Christopher nolen","chris.n@gmail.com");
+//
+//        Employee employee = new Employee(101,"Admin","+91 9003030030","Rambo K","rembo.k@gmail.com");
+//
+//        Admin admin = new Admin(101,"Admin","+91 9003030030","Rambo K","rembo.k@gmail.com");
+//        System.out.println(admin);
+//
+//        person.displayDetails();
+//        System.out.println(person);
+//
+//        customer.displayDetails();
+//        System.out.println(customer);
+//
+//        employee.displayDetails();
+//        System.out.println(employee);
+//
+//        Person[] persons = {
+//                new Customer(1, "+91...", "Shyam", "shyam@gmail.com"),
+//                new Employee(101, "Admin", "+91...", "Amit", "amit@gmail.com"),
+//                new Admin(201, "IT", "+91...", "John", "john@gmail.com")
+//        };
+//
+//        for (Person p : persons) {
+//            p.displayDetails();
+//        }
+//
+        Person customer = new Customer(1, "+91 9897869584", "Shyam", "shyam@gmail.com");
+        Person employee = new Employee(101, "Admin", "+91 3459453453", "Amit", "amit@gmail.com") ;
 
-        Customer customer = new Customer(1,"+91 9080808080","Christopher nolen","chris.n@gmail.com");
-
-        Employee employee = new Employee(101,"Admin","+91 9003030030","Rambo K","rembo.k@gmail.com");
-
-        System.out.println(person);
-        person.displayDetails();
-        System.out.println(customer);
         customer.displayDetails();
-        System.out.println(employee);
+
         employee.displayDetails();
+
+        LoanCalculator loanCalculator=new LoanCalculator();
+        loanCalculator.calculateEMI(200000);
+        loanCalculator.calculateEMI(2000000,8.5);
+        loanCalculator.calculateEMI(200000,8.5,20);
+
+        //DownCasting
+        Person person=new Customer();
+
+        Customer customer1=(Customer) person;
+        customer1.displayDetails();
     }
 }

@@ -3,7 +3,7 @@ package com.loan.app;
 public class Loan {
     private int loanId;
     private double amount;
-    private double intrestRate;
+    private double interestRate;
     private String status;
 
     public int getLoanId(){
@@ -18,11 +18,11 @@ public class Loan {
     public void setAmount(double amount){
         this.amount=amount;
     }
-    public double getintrestRate(){
-        return intrestRate;
+    public double getinterestRate(){
+        return interestRate;
     }
-    public void setintrestRate(float intrestRate){
-        this.intrestRate=intrestRate;
+    public void setinterestRate(float interestRate){
+        this.interestRate=interestRate;
     }
     public String getStatus(){
         return status;
@@ -33,10 +33,10 @@ public class Loan {
 
     public Loan(){}
 
-    public Loan(int loanId,double amount,double intrestRate,String status){
+    public Loan(int loanId,double amount,double interestRate,String status){
         this.loanId=loanId;
         this.amount=amount;
-        this.intrestRate=intrestRate;
+        this.interestRate=interestRate;
         this.status=status;
     }
 
@@ -45,7 +45,7 @@ public class Loan {
         return "Loan{" +
                 "loanId= "+ loanId +
                 ", amount= "+ amount +'\''+
-                ", intrestRate= "+ intrestRate +'\''+
+                ", interestRate= "+ interestRate +'\''+
                 ", status= "+ status +'\''+
                 '}';
     }

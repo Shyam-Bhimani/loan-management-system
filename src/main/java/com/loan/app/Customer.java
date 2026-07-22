@@ -29,8 +29,11 @@ public class Customer extends Person {
                 '}';
     }
 
+
     @Override
     public void displayDetails(){
-        System.out.println("Customer Details");
+        System.out.println("Customer ID : " + customerId);
+
+        super.displayDetails();
     }
 }

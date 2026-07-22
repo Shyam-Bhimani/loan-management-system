@@ -31,15 +31,17 @@ public class Employee extends Person {
 
     @Override
     public String toString() {
-        return "Employee {" +
+        return "Employee{" +
                 "employeeId=" + employeeId +
-                ", department=" + department + ", "+
-                super.toString()+
+                ", department='" + department + '\'' +
+                ", " + super.toString() +
                 '}';
     }
 
     @Override
     public void displayDetails(){
-        System.out.println("Employee Details");
+        System.out.println("Employee ID : " + employeeId);
+
+        super.displayDetails();
     }
 }
