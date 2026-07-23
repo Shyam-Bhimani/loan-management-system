@@ -39,7 +39,9 @@ public class Person {
     }
 
     public void displayDetails() {
-        System.out.println("Person Details");
+        System.out.println("Name  : " + name);
+        System.out.println("Phone : " + phone);
+        System.out.println("Email : " + email);
     }
 
     @Override

@@ -71,9 +71,9 @@ public class Main {
         employee.displayDetails();
 
         LoanCalculator loanCalculator=new LoanCalculator();
-        loanCalculator.calculateEMI(200000);
-        loanCalculator.calculateEMI(2000000,8.5);
-        loanCalculator.calculateEMI(200000,8.5,20);
+        System.out.println(loanCalculator.calculateEMI(200000));
+        System.out.println(loanCalculator.calculateEMI(200000, 8.5));
+        System.out.println(loanCalculator.calculateEMI(200000, 8.5, 20));
 
         //DownCasting
         Person person=new Customer();
@@ -83,5 +83,12 @@ public class Main {
 
         Person admin =new Admin(101, "Admin", "+91 3459453453", "Amit", "amit@gmail.com");
         admin.displayDetails();
+
+        LoanCalculator loanCalculator1=new LoanCalculator();
+        loanCalculator1.printCalculationMessage();
+        System.out.println(loanCalculator1.calculateEMI(200000, 8.5, 20));
+        EMICalculator.version();
+        loanCalculator1.sendNotification();
+
     }
 }

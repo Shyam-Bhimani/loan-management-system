@@ -9,6 +9,7 @@ public class Admin extends Employee{
     @Override
     public void displayDetails(){
         System.out.println("Admin Details");
+        super.displayDetails();
     }
 
     @Override

@@ -1,6 +1,6 @@
 package com.loan.app;
 
-public class Loan {
+public abstract class Loan {
     private int loanId;
     private double amount;
     private double interestRate;
@@ -18,10 +18,10 @@ public class Loan {
     public void setAmount(double amount){
         this.amount=amount;
     }
-    public double getinterestRate(){
+    public double getInterestRate(){
         return interestRate;
     }
-    public void setinterestRate(float interestRate){
+    public void setInterestRate(double interestRate){
         this.interestRate=interestRate;
     }
     public String getStatus(){
@@ -49,4 +49,5 @@ public class Loan {
                 ", status= "+ status +'\''+
                 '}';
     }
+    public abstract void calculateInterest();
 }
