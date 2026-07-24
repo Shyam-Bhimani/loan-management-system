@@ -90,5 +90,38 @@ public class Main {
         EMICalculator.version();
         loanCalculator1.sendNotification();
 
+        Loan homeLoan = new HomeLoan(1001,200000,8.5,"sanctioned");
+        Loan carLoan = new CarLoan(2002,200000,9.8,"disbursed");
+
+        homeLoan.calculateInterest();
+        carLoan.calculateInterest();
+
+        //day 5
+
+        System.out.println("\n################ Day 5 ################\n");
+        LoanCounter loan1 = new LoanCounter();
+        LoanCounter loan2 = new LoanCounter();
+        LoanCounter loan3 = new LoanCounter();
+
+        System.out.println(LoanCounter.getTotalLoans());
+
+        System.out.println(Constants.MIN_INTEREST);
+
+        System.out.println("\n***** equals() *****\n");
+        Customer c1 = new Customer(1,"Shyam","9876543210","shyam@gmail.com");
+        Customer c2 = new Customer(1,"ShyamA","9876543210","shyam@gmail.com");
+        Customer c3 = new Customer(2,"ShyamB","9876543210","shyam@gmail.com");
+        System.out.println("c1.equals(c2) : "+c1.equals(c2));
+        System.out.println("c1.equals(c3) : "+c1.equals(c3));
+
+        System.out.println(c1.hashCode());
+        System.out.println(c2.hashCode());
+        System.out.println(c3.hashCode());
+
+        System.out.print("c1==c2");
+        System.out.println(c1==c2);
+        System.out.println("c1.equals(c2) : "+c1.equals(c2));
+
+        System.out.println(LoanUtility.calculateGST(10000));
     }
 }

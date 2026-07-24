@@ -1,6 +1,6 @@
 package com.loan.app;
 
-public class Person {
+public abstract class Person {
     private String phone;
     private String name;
     private String email;
