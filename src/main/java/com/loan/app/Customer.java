@@ -1,7 +1,9 @@
 package com.loan.app;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Objects;
 
-public class Customer extends Person {
+public class Customer extends Person implements Comparable<Customer>{
     private int customerId;
     private final String bankName = "HDFC Bank";
 
@@ -23,6 +25,13 @@ public class Customer extends Person {
     public Customer(int customerId,String phone, String name, String email){
         super(phone, name, email);
         this.customerId=customerId;
+    }
+
+    public static void displayCustomers(List<Customer> customers){
+        Iterator<Customer> it = customers.iterator();
+        while(it.hasNext()){
+            System.out.println(it.next());
+        }
     }
 
     @Override
@@ -56,5 +65,10 @@ public class Customer extends Person {
     @Override
     public int hashCode() {
         return Objects.hash(customerId);
+    }
+
+    @Override
+    public int compareTo(Customer obj) {
+        return Integer.compare(this.getCustomerId(),obj.getCustomerId());
     }
 }

@@ -1,9 +1,8 @@
 package com.loan.app;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
+
+import static com.loan.app.Customer.displayCustomers;
 
 public class Main {
     public static void displayCustomer(Customer customer){
@@ -166,5 +165,67 @@ public class Main {
         for(Loan loan:loans){
             loan.calculateInterest();
         }
+
+        displayCustomers(customerList);
+
+        //day 7
+
+        System.out.println("\n################ Day 7 ################\n");
+
+        Set<Customer> customerSet = new HashSet<>();
+        customerSet.add(new Customer(1,"Shyam","9876543210","shyam@gmail.com"));
+        customerSet.add(new Customer(2,"Rohit","9876543210","rohit@gmail.com"));
+        customerSet.add(new Customer(3,"Ram","9876543210","ram@gmail.com"));
+        customerSet.add(new Customer(3,"Ram","9876543210","ram@gmail.com"));
+        customerSet.add(new Customer(3,"Ram","9876543210","ram@gmail.com"));
+
+        System.out.println(customerSet);
+        customerSet.remove(new Customer(2,
+                "Rohit",
+                "9876543210",
+                "rohit@gmail.com"));
+
+        System.out.println(customerSet);
+
+        Set<Customer> linkedCustomers = new LinkedHashSet<>();
+        linkedCustomers.add(new Customer(1,"Shyam","9876543210","shyam@gmail.com"));
+        linkedCustomers.add(new Customer(2,"Rohit","9876543210","rohit@gmail.com"));
+        linkedCustomers.add(new Customer(3,"Ram","9876543210","ram@gmail.com"));
+        linkedCustomers.add(new Customer(3,"Ram","9876543210","ram@gmail.com"));
+        linkedCustomers.add(new Customer(3,"Ram","9876543210","ram@gmail.com"));
+
+        Set<String> customerNames = new TreeSet<>();
+        customerNames.add("Shyam");
+        customerNames.add("Rahul");
+        customerNames.add("Amit");
+        customerNames.add("Neha");
+
+        System.out.println("name ascending : "+customerNames);
+
+        Set<String> descCustomerNames = new TreeSet<>(Comparator.reverseOrder());
+        descCustomerNames.add("Shyam");
+        descCustomerNames.add("Rahul");
+        descCustomerNames.add("Amit");
+        descCustomerNames.add("Neha");
+
+        System.out.println("name ascending : "+descCustomerNames);
+
+        Set<Integer> custIds = new TreeSet<>();
+        custIds.add(2);
+        custIds.add(9);
+        custIds.add(5);
+        custIds.add(3);
+        custIds.add(1);
+        System.out.println(custIds);
+
+
+        Set<Customer> sortedCustomers = new TreeSet<>();
+        sortedCustomers.add(new Customer(1,"Shyam","9876543210","shyam@gmail.com"));
+        sortedCustomers.add(new Customer(9,"Rohit","9876543210","rohit@gmail.com"));
+        sortedCustomers.add(new Customer(2,"Ram","9876543210","ram@gmail.com"));
+        sortedCustomers.add(new Customer(5,"Priya","9876543210","priya@gmail.com"));
+        sortedCustomers.add(new Customer(8,"Neha","9876543210","neha@gmail.com"));
+
+        System.out.println(sortedCustomers);
     }
 }
