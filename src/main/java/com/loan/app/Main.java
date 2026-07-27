@@ -1,5 +1,10 @@
 package com.loan.app;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+
 public class Main {
     public static void displayCustomer(Customer customer){
         System.out.println(customer);
@@ -123,5 +128,43 @@ public class Main {
         System.out.println("c1.equals(c2) : "+c1.equals(c2));
 
         System.out.println(LoanUtility.calculateGST(10000));
+
+        //day 6
+
+        System.out.println("\n################ Day 6 ################\n");
+
+        List<Customer> customerList = new ArrayList<>();
+        customerList.add(new Customer(1,"Shyam","9876543210","shyam@gmail.com"));
+        customerList.add(new Customer(2,"Rohit","9876543210","rohit@gmail.com"));
+        customerList.add(new Customer(3,"Ram","9876543210","ram@gmail.com"));
+
+        //for loop
+        for(int i=0;i<customerList.size();i++){
+            System.out.println(customerList.get(i));
+        }
+
+        //foreach loop
+        for(Customer cust:customerList){
+            System.out.println(cust);
+        }
+
+        //iterator
+        Iterator<Customer> iterator = customerList.iterator();
+        while(iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
+
+        List<Customer> customers_linkedList = new LinkedList<>();
+        customers_linkedList.add(new Customer(4,"Priya","9873443210","priya@gmail.com"));
+        customers_linkedList.add(new Customer(5,"Neha","98345443210","neha@gmail.com"));
+
+
+        List<Loan> loans = new ArrayList<>();
+        loans.add(new HomeLoan(902,2342344.00,8.5,"Approved"));
+        loans.add(new CarLoan(906,345534.35,8.9,"Sanctioned"));
+
+        for(Loan loan:loans){
+            loan.calculateInterest();
+        }
     }
 }
