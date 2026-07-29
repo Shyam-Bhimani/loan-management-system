@@ -227,5 +227,104 @@ public class Main {
         sortedCustomers.add(new Customer(8,"Neha","9876543210","neha@gmail.com"));
 
         System.out.println(sortedCustomers);
+
+        //day 8
+
+        System.out.println("\n################ Day 8 ################\n");
+
+        Map<Integer, Customer> customerMap = new HashMap<>();
+        customerMap.put(101,new Customer(1,"Shyam","9876543210","shyam@gmail.com"));
+        customerMap.put(109,new Customer(9,"Ram","9876453210","ram@gmail.com"));
+        customerMap.put(102,new Customer(2,"Priya","98458743210","priya@gmail.com"));
+        customerMap.put(105,new Customer(5,"Neha","98765743210","neha@gmail.com"));
+
+        Customer cust = customerMap.get(102);
+        System.out.println(cust);
+
+        for(Map.Entry<Integer,Customer> entry : customerMap.entrySet()){
+            System.out.println(entry.getKey()+" : "+entry.getValue());
+        }
+
+        for(Integer id : customerMap.keySet()){
+            System.out.println(id);
+        }
+
+        for(Customer cust1:customerMap.values()){
+            System.out.println(cust1);
+        }
+
+        customerMap.put(105,new Customer(5,"Sneha","98762343210","sneha@gmail.com"));
+        System.out.println("\n"+customerMap);
+
+        System.out.println(customerMap.containsKey(102));
+        System.out.println(customerMap.containsKey(103));
+        System.out.println(customerMap.containsValue(cust));
+
+        //Stretch goal
+        Map<Integer,Loan> loanMap = new HashMap<>();
+        loanMap.put(101,new HomeLoan(101,23424434.44,8.3,"Disbursed"));
+        loanMap.put(801,new CarLoan(102,345345.35,9.3,"Approved"));
+        loanMap.put(105,new HomeLoan(103,23424434.44,8.3,"Disbursed"));
+        loanMap.put(802,new CarLoan(104,345345.35,9.3,"Pending Doc"));
+
+        loanMap.get(801).calculateInterest();
+
+        //day 9
+
+        System.out.println("\n################ Day 9 ################\n");
+
+        Queue<Customer> customerQueue = new LinkedList<>();
+        customerQueue.offer(new Customer(1,"Shyam","9876543210","shyam@gmail.com"));
+        customerQueue.offer(new Customer(2,"Ram","9871113210","ram@gmail.com"));
+        customerQueue.offer(new Customer(3,"John","9876323210","john@gmail.com"));
+
+        System.out.println(customerQueue);
+
+        System.out.println(customerQueue.peek());
+        System.out.println(customerQueue.poll());
+        System.out.println(customerQueue.peek());
+
+        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
+        priorityQueue.offer(123);
+        priorityQueue.offer(12);
+        priorityQueue.offer(18);
+        priorityQueue.offer(1);
+        priorityQueue.offer(112);
+        priorityQueue.offer(100);
+
+        System.out.println(priorityQueue);
+
+        while(!priorityQueue.isEmpty()){
+            System.out.println(priorityQueue.poll());
+        }
+
+        Deque<String> tasks = new ArrayDeque<>();
+        tasks.offerLast("Verify Loan");
+        tasks.offerLast("Approve Loan");
+        tasks.offerLast("Generate Report");
+
+        System.out.println(tasks.pollFirst());
+
+        //Use Deque as Stack
+
+        Deque<String> stackHistory = new ArrayDeque<>();
+        stackHistory.push("Home");
+        stackHistory.push("Customer");
+        stackHistory.push("Loan");
+
+        System.out.println(stackHistory.pop());
+        System.out.println(stackHistory.peek());
+
+        //stretch goal
+        Queue<Loan> loanQueue = new LinkedList<>();
+        loanQueue.offer(new HomeLoan(101,23424434.44,8.3,"Disbursed"));
+        loanQueue.offer(new CarLoan(102,345345.35,9.3,"Approved"));
+        loanQueue.offer(new HomeLoan(103,23424434.44,8.3,"Disbursed"));
+        loanQueue.offer(new CarLoan(104,345345.35,9.3,"Pending Doc"));
+
+        while(!loanQueue.isEmpty()){
+            Loan loan =loanQueue.poll();
+            loan.calculateInterest();
+        }
     }
 }
