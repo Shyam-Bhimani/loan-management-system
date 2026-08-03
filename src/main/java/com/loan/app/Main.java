@@ -326,5 +326,50 @@ public class Main {
             Loan loan =loanQueue.poll();
             loan.calculateInterest();
         }
+
+        //day 10
+
+        System.out.println("\n################ Day 10 ################\n");
+
+        List<Customer> customerList1 = new ArrayList<>();
+        customerList1.add(new Customer(2,"Shyam","9876543210","shyam@gmail.com"));
+        customerList1.add(new Customer(1,"Rohit","9876543210","rohit@gmail.com"));
+        customerList1.add(new Customer(3,"Ram","9876543210","ram@gmail.com"));
+
+        Collections.sort(customerList1);
+
+        for(Customer customer2 : customerList1){
+            System.out.println(customer2);
+        }
+
+        Comparator<Customer> byName = Comparator.comparing(Customer::getName);
+
+        Comparator<Customer> byEmail = Comparator.comparing(Customer::getEmail);
+
+        Comparator<Customer> byIdDescending  = Comparator.comparing(Customer::getCustomerId).reversed();
+
+        customerList1.sort(byName);
+        System.out.println("Sort by Name : \n"+customerList1);
+
+        customerList1.sort(byEmail);
+        System.out.println("Sorted by Email : \n"+customerList1);
+
+        customerList1.sort(byIdDescending);
+        System.out.println("Sorted by ID descending : \n"+customerList1);
+
+        //lambda
+
+        customerList1.sort((cx1,cx2)->cx1.getName().compareTo(cx2.getName()));
+        System.out.println("Sort by Name Lambda: \n"+customerList1);
+
+        customerList1.sort((cust1,cust2)->cust1.getEmail().compareTo(cust2.getEmail()));
+        System.out.println("Sort by Email Lambda: \n"+customerList1);
+
+        customerList1.sort(Comparator.comparing(Customer::getName));
+
+        customerList1.sort(Comparator.comparing(Customer::getEmail));
+
+        customerList1.sort(Comparator.comparing(Customer::getCustomerId).reversed());
+
     }
 }
