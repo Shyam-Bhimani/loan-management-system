@@ -1,6 +1,10 @@
 package com.loan.app;
 
 import java.util.*;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 import static com.loan.app.Customer.displayCustomers;
 
@@ -62,6 +66,50 @@ public class MainWeek3 {
         loans.save(new CarLoan(10003,223123.31,8.9,"Disbursed"));
         loans.save(new HomeLoan(10004,1273123.31,8.9,"Approved"));
         System.out.println("All Loans : \n"+loans.getAll());
+
+        //day 2
+        Greeting greeting = ()-> System.out.println("Hello Java!");
+        greeting.sayHello();
+
+        Calculator calculator = (x,y)-> x+y;
+        calculator.add(1,5);
+
+        List<String> names = new ArrayList<>();
+        names.add("Shyam");
+        names.add("Ram");
+        names.add("John");
+        names.add("Jack");
+
+        names.forEach(name->System.out.println(name));
+
+        //method reference
+        names.forEach(System.out::println);
+
+        //Consumer
+        Consumer<String> consumer = name-> System.out.println(name);
+        consumer.accept("Shyam");
+        //Supplier
+        Supplier<String> supplier = ()->"Welcome";
+        System.out.println(supplier.get());
+        //predicate
+        Predicate<Integer> even = number ->number%2==0;
+        System.out.println(even.test(20));
+        //Function
+        Function<String,Integer> length = String::length;
+        System.out.println(length.apply("Shyam"));
+
+        List<Customer> customerList = new ArrayList<>();
+        customerList.add(new Customer(2,"Shyam","9876543210","shyam@gmail.com"));
+        customerList.add(new Customer(1,"Rohit","9876543210","rohit@gmail.com"));
+        customerList.add(new Customer(3,"Ram","9876543210","ram@gmail.com"));
+        System.out.println();
+        customerList.forEach(cust-> System.out.println(cust));
+        System.out.println();
+        customerList.forEach(System.out::println);
+
+        customerList.sort(Comparator.comparing(Customer::getName));
+
+        customerList.stream().filter(cust->cust.getName().startsWith("S")).forEach(System.out::println);
     }
 
 }
