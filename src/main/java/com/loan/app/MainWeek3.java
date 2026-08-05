@@ -5,6 +5,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 import static com.loan.app.Customer.displayCustomers;
 
@@ -99,9 +100,13 @@ public class MainWeek3 {
         System.out.println(length.apply("Shyam"));
 
         List<Customer> customerList = new ArrayList<>();
-        customerList.add(new Customer(2,"Shyam","9876543210","shyam@gmail.com"));
-        customerList.add(new Customer(1,"Rohit","9876543210","rohit@gmail.com"));
-        customerList.add(new Customer(3,"Ram","9876543210","ram@gmail.com"));
+        customerList.add(new Customer(2,"9876543210","Shyam","shyam@gmail.com"));
+        customerList.add(new Customer(1,"9876543210","Rohit","rohit@gmail.com"));
+        customerList.add(new Customer(3,"9876543210","Ram","ram@gmail.com"));
+        customerList.add(new Customer(8,"98765345210","Sneha","sneha@gmail.com"));
+        customerList.add(new Customer(9,"9871143210","Priya","priya@gmail.com"));
+        customerList.add(new Customer(10,"9871143210","Priya","priya@gmail.com"));
+
         System.out.println();
         customerList.forEach(cust-> System.out.println(cust));
         System.out.println();
@@ -110,6 +115,46 @@ public class MainWeek3 {
         customerList.sort(Comparator.comparing(Customer::getName));
 
         customerList.stream().filter(cust->cust.getName().startsWith("S")).forEach(System.out::println);
+
+        //day 3
+        //print cust name
+
+        System.out.println("##### day 3 #####");
+        customerList.
+                stream().map(Customer::getName)
+                .forEach(System.out::println);
+
+        //print cust name sorted
+        customerList.stream().sorted(Comparator.comparing(Customer::getName)).forEach(System.out::println);
+
+        System.out.println();
+        customerList.stream().map(Customer::getName).distinct().forEach(System.out::println);
+        //disinct
+        System.out.println();
+        System.out.println(customerList.stream().map(Customer::getName).distinct().count());
+        //collect
+        System.out.println();
+        List<Customer> listDistinct = customerList.stream()
+                .filter(s->s.getName().startsWith("R"))
+                        .collect(Collectors.toList());
+
+        System.out.println(listDistinct);
+        //find first
+        customerList.stream().findFirst().ifPresent(System.out::println);
+        //any match
+        boolean hasShyam = customerList.stream().anyMatch(cust1->cust1.getName().equalsIgnoreCase("Shyam"));
+        System.out.println(hasShyam);
+        //all match
+        boolean allhaveEmail = customerList.stream().allMatch(cust2->cust2.getEmail().contains("@"));
+        System.out.println(allhaveEmail);
+
+        //chain calls
+        customerList.stream()
+                .filter(custom->custom.getCustomerId()<10)
+                .sorted(Comparator.comparing(Customer::getName))
+                .map(Customer::getName)
+                .forEach(System.out::println);
+
     }
 
 }
