@@ -155,6 +155,66 @@ public class MainWeek3 {
                 .map(Customer::getName)
                 .forEach(System.out::println);
 
+        //day 4
+        System.out.println("##### day4 ####");
+        //flat map
+        List<List<String>> nameList = Arrays.asList(
+                Arrays.asList("Shyam","Ram"),
+                Arrays.asList("Amit", "Sneha")
+        );
+
+        nameList.stream().flatMap(List::stream).forEach(System.out::println);
+
+        //reduce()
+        List<Integer> loanAmount = Arrays.asList(10000,20000,30000);
+
+        int total=loanAmount.stream().reduce(0,Integer::sum);
+        System.out.println("Total loan amount sum"+total);
+
+        //groupingBy
+        Map<Character,List<Customer>> groupedCust = customerList.stream()
+                .collect(Collectors.groupingBy(c->c.getName().charAt(0)));
+
+        System.out.println(groupedCust);
+        System.out.println();
+        //partitioningBy
+        Map<Boolean,List<Customer>> patisionedCust = customerList.stream()
+                .collect(Collectors.partitioningBy(c->c.getCustomerId()>2));
+        System.out.println(patisionedCust);
+
+        //joining
+        String custNames = customerList.stream()
+                .map(Customer::getName)
+                .collect(Collectors.joining(",","[","]"));
+        System.out.println("\n"+custNames);
+
+        //peek
+        customerList.stream()
+                .peek(c-> System.out.println("Before : "+c))
+                .filter(c->c.getCustomerId()>2)
+                .forEach(System.out::println);
+
+        List<Loan> loanList = new ArrayList<>();
+        loanList.add(new HomeLoan(902,8342344.00,8.5,"Approved"));
+        loanList.add(new CarLoan(906,345534.35,8.9,"Sanctioned"));
+        loanList.add(new HomeLoan(905,2342344.00,8.5,"Approved"));
+        loanList.add(new CarLoan(904,345534.35,8.9,"Sanctioned"));
+        loanList.add(new HomeLoan(908,2342344.00,8.5,"Approved"));
+        loanList.add(new CarLoan(910,345534.35,8.9,"Sanctioned"));
+
+        //calculate total loan amount
+        Double sum = loanList.stream().map(Loan::getAmount).reduce(0.0, Double::sum);
+        System.out.println(sum);
+        //max loan amount
+        Optional<Double> collect = loanList.stream().map(Loan::getAmount).max(Comparator.naturalOrder());
+        System.out.println(collect.get());
+        //group by laon type
+        Map<String, List<Loan>> collect1 = loanList.stream().collect(Collectors.groupingBy(c -> c.getClass().getName()));
+        System.out.println(collect1);
+        //print only loan id
+        loanList.stream().map(Loan::getLoanId).forEach(System.out::println);
+
     }
+
 
 }
