@@ -1,10 +1,19 @@
 package com.loan.app;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public abstract class Loan {
     private int loanId;
     private double amount;
     private double interestRate;
     private String status;
+
+    public LocalDate getLoanDate() {
+        return loanDate;
+    }
+
+    private LocalDate loanDate;
 
     public int getLoanId(){
         return loanId;
@@ -38,6 +47,9 @@ public abstract class Loan {
         this.amount=amount;
         this.interestRate=interestRate;
         this.status=status;
+        DateTimeFormatter dateTimeFormatter =DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        String date = LocalDate.now().format(dateTimeFormatter);
+        this.loanDate = LocalDate.parse(date,dateTimeFormatter);
     }
 
     @Override

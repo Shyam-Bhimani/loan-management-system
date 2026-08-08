@@ -1,5 +1,7 @@
 package com.loan.app;
 
+import java.time.*;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -213,6 +215,76 @@ public class MainWeek3 {
         System.out.println(collect1);
         //print only loan id
         loanList.stream().map(Loan::getLoanId).forEach(System.out::println);
+
+        //day 5
+        System.out.println("##### Day 5 #####");
+
+        //OPTIONAL
+
+        //npe
+        Customer customer1 = null;
+        //System.out.println(customer1.getName());
+
+        //with Optional
+        Optional<Customer> customer2 = Optional.empty();
+        System.out.println(customer2.isPresent());
+
+        Optional<String> name = Optional.of("Shyam");
+        System.out.println(name);
+        System.out.println(name.get());
+
+        String email = null;
+        Optional<String> optionalEmail = Optional.ofNullable(email);
+        //System.out.println(optionalEmail.get());
+
+        String email1 = optionalEmail.orElse("Not Available");
+        System.out.println(email1);
+
+        Optional<String> customer3 = Optional.of("Shyam");
+        customer3.ifPresent(System.out::println);
+
+        //Date Time
+        //LocalDate
+        LocalDate today =LocalDate.now();
+        System.out.println("Today : "+today);
+
+        LocalDate joiningDate = LocalDate.of(2019,9,19);
+        System.out.println("Joining Date : "+joiningDate);
+
+        //LocalTime
+        LocalTime currentTime = LocalTime.now();
+        System.out.println("Current Time : "+currentTime);
+
+        //LocalDateTime
+        LocalDateTime now = LocalDateTime.now();
+        System.out.println("Now : "+now);
+
+        //Date Formatting
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        String formatted = LocalDate.now().format(formatter);
+        System.out.println("Formatted date : "+formatted);
+
+        String date = "15-08-2026";
+        DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+
+        LocalDate parsed = LocalDate.parse(date,formatter1);
+        System.out.println("parsed date : "+parsed);
+
+        //Period
+        LocalDate joining = LocalDate.of(2019,9,19);
+        Period period = Period.between(joining,LocalDate.now());
+        System.out.println(period);
+        System.out.println(period.getYears());
+
+        //Duration
+        LocalTime start = LocalTime.of(9,0);
+        LocalTime end = LocalTime.of(18,30);
+        Duration duration = Duration.between(start,end);
+        System.out.println(duration);
+        System.out.println(duration.toHours());
+
+        Loan loan=new HomeLoan(10002,3423123.31,8.9,"Pending Doc");
+        System.out.println(loan.getLoanDate());
 
     }
 
