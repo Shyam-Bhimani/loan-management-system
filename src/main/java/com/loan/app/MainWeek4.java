@@ -349,5 +349,38 @@ public class MainWeek4 {
         Future<List<String>> future =strechExecutor.submit(strechTask);
         System.out.println(future.get());
         strechExecutor.shutdown();
+
+
+        //day 4
+        System.out.println("##### Day 4 #####");
+        Counter counter = new Counter();
+        Thread t1 = new Thread(()->{
+            for(int i=0;i<1000;i++){
+                counter.increment();
+            }
+        });
+
+        Thread t2= new Thread(()->{
+            for(int i=0;i<1000;i++){
+                counter.increment();
+            }
+        });
+
+        t1.start();
+        t2.start();
+        t1.join();
+        t2.join();
+        System.out.println(counter.getCount());
+
+//Real Life example
+        ExecutorService loanService= Executors.newFixedThreadPool(2);
+        LoanAccount account = new LoanAccount();
+
+        Future<Boolean> result = loanService.submit(()->account.approvedLoan(70000));
+        Future<Boolean> result1 = loanService.submit(()->account.approvedLoan(50000));
+        System.out.println(result.get());
+        System.out.println(result1.get());
+
+        loanService.shutdown();
     }
 }
