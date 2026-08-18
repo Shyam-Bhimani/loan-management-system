@@ -1,4 +1,4 @@
-package com.loan.week5;
+package com.loan.week5.twoPointer;
 
 public class ValidPalindromWithoutReverseString {
     public static boolean palindrome(String s){

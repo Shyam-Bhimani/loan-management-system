@@ -1,4 +1,4 @@
-package com.loan.week5;
+package com.loan.week5.twoPointer;
 
 public class RemoveDuplicates2pointer {
     public static int removeDuplicate(int[] nums) {

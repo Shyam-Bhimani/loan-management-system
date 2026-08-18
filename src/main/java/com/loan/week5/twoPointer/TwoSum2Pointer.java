@@ -1,4 +1,4 @@
-package com.loan.week5;
+package com.loan.week5.twoPointer;
 
 import java.util.Arrays;
 
