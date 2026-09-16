@@ -1,4 +1,4 @@
-package com.loan.week9.day2.src.main.java.PaymentService;
+package com.loan.week9.day3.src.main.java.PaymentService;
 
 import org.springframework.stereotype.Service;
 

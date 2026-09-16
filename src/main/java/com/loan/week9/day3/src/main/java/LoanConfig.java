@@ -1,4 +1,4 @@
-package com.loan.week9.day2.src.main.java;
+package com.loan.week9.day3.src.main.java;
 
 
 import org.springframework.context.annotation.ComponentScan;

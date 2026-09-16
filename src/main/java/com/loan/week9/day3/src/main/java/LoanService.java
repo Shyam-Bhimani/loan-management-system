@@ -1,6 +1,6 @@
-package com.loan.week9.day2.src.main.java;
+package com.loan.week9.day3.src.main.java;
 
-import com.loan.week9.day2.src.main.java.PaymentService.PaymentService;
+import com.loan.week9.day3.src.main.java.PaymentService.PaymentService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 

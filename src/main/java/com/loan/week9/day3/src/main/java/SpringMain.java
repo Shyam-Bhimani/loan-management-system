@@ -1,9 +1,7 @@
-package com.loan.week9.day2.src.main.java;
+package com.loan.week9.day3.src.main.java;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 
 @ComponentScan(basePackages = "com.loan.week9.day2.src.main.java")
 public class SpringMain {
